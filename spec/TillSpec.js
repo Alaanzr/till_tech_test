@@ -51,4 +51,8 @@ describe("Till", function() {
   it("Should return a price for menu items", function() {
     expect(till.prices[0].Tiramisu).toEqual(11.40);
   });
+
+  it("Should return a price for menu items containing multiple words", function() {
+    expect(till.prices[0]['Cafe Latte']).toEqual(4.75);
+  });
 });
