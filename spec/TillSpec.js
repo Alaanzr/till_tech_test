@@ -55,4 +55,21 @@ describe("Till", function() {
   it("Should return a price for menu items containing multiple words", function() {
     expect(till.prices[0]['Cafe Latte']).toEqual(4.75);
   });
+
+  it("Should initialise with no orders", function() {
+    expect(till.orders.length).toEqual(0);
+  });
+
+    describe("addItem", function() {
+      it("Should allow the till operator to add an item to the list of orders", function() {
+        till.addItem('Tiramisu');
+        expect(till.orders.length).toEqual(1);
+      });
+
+      it("Should raise an error when the till operator attempts to add an item not featured on the menu", function() {
+        expect(function() {
+          till.addItem('Invalid Item');
+        }).toThrow(new Error("Invalid Menu Item"));
+      });
+    });
 });
