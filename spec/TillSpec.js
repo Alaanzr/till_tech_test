@@ -72,4 +72,12 @@ describe("Till", function() {
         }).toThrow(new Error("Invalid Menu Item"));
       });
     });
+
+    // describe("total", function() {
+    //   it("Should provide the order total", function() {
+    //     till.addItem('Tea');
+    //     till.addItem('Tiramisu');
+    //     expect(till.total()).toEqual(15.05);
+    //   });
+    // });
 });
