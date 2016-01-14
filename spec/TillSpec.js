@@ -62,23 +62,30 @@ describe("Till", function() {
 
     describe("addItem()", function() {
       it("Should allow the till operator to add an item to the list of orders", function() {
-        till.addItem('Tiramisu');
+        till.addItem('Tiramisu', 1);
         expect(till.orders.length).toEqual(1);
       });
 
       it("Should raise an error when the till operator attempts to add an item not featured on the menu", function() {
         expect(function() {
-          till.addItem('Invalid Item');
+          till.addItem('Invalid Item', 1);
         }).toThrow(new Error("Invalid Menu Item"));
       });
     });
 
     describe("total()", function() {
       it("Should provide the order total", function() {
-        till.addItem('Tea');
-        till.addItem('Tiramisu');
+        till.addItem('Tea', 1);
+        till.addItem('Tiramisu', 1);
         till.total();
         expect(till.sum).toEqual(15.05);
+      });
+
+      it("Should increase the total cost based on the quantity ordered", function() {
+        till.addItem('Tea', 1);
+        till.addItem('Tea', 2);
+        till.total();
+        expect(till.sum).toEqual(10.95);
       });
     });
 });

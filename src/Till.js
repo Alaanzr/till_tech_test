@@ -7,10 +7,10 @@ function Till(json) {
   this.sum = 0;
   var that = this;
 
-  this.addItem = function(menu_item) {
-    if (!json[0].prices[0].hasOwnProperty(menu_item)) throw Error("Invalid Menu Item");
+  this.addItem = function(menuItem, quantity) {
+    if (!json[0].prices[0].hasOwnProperty(menuItem)) throw Error("Invalid Menu Item");
     var obj = {};
-    obj[menu_item] = this.prices[0][menu_item];
+    obj[menuItem] = quantity * this.prices[0][menuItem];
     this.orders.push(obj);
   };
 
