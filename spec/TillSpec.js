@@ -35,4 +35,20 @@ describe("Till", function() {
   it("Should be defined", function() {
     expect(till).toBeDefined();
   });
+
+  it("Should reference the shop's address", function() {
+    expect(till.address).toEqual("123 Lakeside Way");
+  });
+
+  it("Should reference the shop's name", function() {
+    expect(till.shopName).toEqual("The Coffee Connection");
+  });
+
+  it("Should reference the shop's phone number", function() {
+    expect(till.phone).toEqual("16503600708");
+  });
+
+  it("Should return a price for menu items", function() {
+    expect(till.prices[0].Tiramisu).toEqual(11.40);
+  });
 });
