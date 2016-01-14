@@ -60,7 +60,7 @@ describe("Till", function() {
     expect(till.orders.length).toEqual(0);
   });
 
-    describe("addItem", function() {
+    describe("addItem()", function() {
       it("Should allow the till operator to add an item to the list of orders", function() {
         till.addItem('Tiramisu');
         expect(till.orders.length).toEqual(1);
@@ -73,11 +73,12 @@ describe("Till", function() {
       });
     });
 
-    // describe("total", function() {
-    //   it("Should provide the order total", function() {
-    //     till.addItem('Tea');
-    //     till.addItem('Tiramisu');
-    //     expect(till.total()).toEqual(15.05);
-    //   });
-    // });
+    describe("total()", function() {
+      it("Should provide the order total", function() {
+        till.addItem('Tea');
+        till.addItem('Tiramisu');
+        till.total();
+        expect(till.sum).toEqual(15.05);
+      });
+    });
 });
